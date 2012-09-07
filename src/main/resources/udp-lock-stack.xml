@@ -1,0 +1,24 @@
+<config xmlns="urn:org:jgroups"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/JGroups-3.1.xsd">
+    <UDP
+            mcast_port="${jgroups.udp.mcast_port:45588}"
+            receive_on_all_interfaces="true"
+            />
+    <PING/>
+    <MERGE2/>
+    <FD_SOCK/>
+    <FD_ALL/>
+    <VERIFY_SUSPECT/>
+    <BARRIER />
+    <pbcast.NAKACK2/>
+    <UNICAST2/>
+    <pbcast.STABLE/>
+    <pbcast.GMS/>
+    <UFC/>
+    <MFC/>
+    <FRAG2/>
+    <RSVP/>
+    <pbcast.STATE_TRANSFER />
+    <CENTRAL_LOCK/>
+</config>
