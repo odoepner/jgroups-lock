@@ -50,7 +50,7 @@ public class Main {
                     managedLock.toggle();
                     break;
                 }
-                case 'x': {
+                case 'q': {
                     managedLock.close();
                     System.exit(0);
                 }
