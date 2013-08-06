@@ -4,9 +4,7 @@
 
     <groupId>net.doepner</groupId>
     <artifactId>jgroups-lock</artifactId>
-    <version>1.0</version>
-
-    <name>jgroups-lock</name>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,23 +36,6 @@
                         </manifest>
                     </archive>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.jolira</groupId>
-                <artifactId>onejar-maven-plugin</artifactId>
-                <version>1.4.4</version>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <attachToBuild>true</attachToBuild>
-                            <classifier>onejar</classifier>
-                            <filename>${project.artifactId}.${project.packaging}</filename>
-                        </configuration>
-                        <goals>
-                            <goal>one-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
