@@ -6,6 +6,8 @@ import java.util.concurrent.locks.Lock;
 
 import org.jgroups.JChannel;
 import org.jgroups.blocks.locking.LockService;
+import org.jgroups.protocols.CENTRAL_LOCK;
+import org.jgroups.stack.Protocol;
 
 public class JgroupsManagedLock implements ManagedLock {
 
@@ -19,13 +21,21 @@ public class JgroupsManagedLock implements ManagedLock {
         this.name = name;
         final LockService lockService;
         try {
-            channel = new JChannel("udp-lock-stack.xml");
+            channel = createChannel();
             lockService = new LockService(channel);
             channel.connect("LockCluster");
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
         lock = lockService.getLock(name);
+    }
+
+    private JChannel createChannel() throws Exception {
+        final JChannel ch = new JChannel();
+        final Protocol lockProtocol = new CENTRAL_LOCK();
+        lockProtocol.init();
+        ch.getProtocolStack().addProtocol(lockProtocol);
+        return ch;
     }
 
     @Override
